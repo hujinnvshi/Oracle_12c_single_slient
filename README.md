@@ -8,7 +8,7 @@ Oracle 12c 单实例静默安装项目
 
 ## 版本信息
 
-### 基础安装包
+### Oracle 12c Release 1 (12.1.0.2) 安装包
 
 - **Oracle 版本**: 12.1.0.2
 - **安装包**: V46095-01
@@ -16,12 +16,19 @@ Oracle 12c 单实例静默安装项目
   - `Oracle 12.1.0.2-V46095-01_1of2.zip` (文件1)
   - `Oracle 12.1.0.2-V46095-01_2of2.zip` (文件2)
 
-### 补丁包
+### Oracle 12c Release 2 (12.2.0.1) 安装包
 
-- **补丁包1**: V839960-01
-  - `oracle 12c V839960-01.zip`
-- **补丁包2**: V840012-01
-  - `oracle 12c V840012-01.zip`
+- **Oracle Database 12c Release 2 (12.2.0.1)**
+  - **安装包**: V839960-01
+  - **文件**: `oracle 12c V839960-01.zip`
+  - **说明**: Oracle Database 12.2.0.1 基础安装软件 (Linux x86-64)
+
+- **Oracle Grid Infrastructure 12c Release 2 (12.2.0.1)**
+  - **安装包**: V840012-01
+  - **文件**: `oracle 12c V840012-01.zip`
+  - **说明**: Oracle Grid Infrastructure 12.2.0.1.0 (Linux x86-64)
+  - **用途**: 用于 Oracle RAC 和集群安装
+  - **大小**: 约 2.8 GB
 
 ## 使用方法
 
