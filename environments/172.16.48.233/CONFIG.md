@@ -106,9 +106,15 @@ export ORACLE_HOME=$ORACLE_BASE/product/12.2.0.1/dbhome_1
 export ORACLE_SID=or122
 export PATH=$ORACLE_HOME/bin:$PATH
 
+# 系统语言：中文 UTF-8
+export LANG=zh_CN.UTF-8
+# 数据库字符集：中文 + AL32UTF8（不乱码、最标准）
+export NLS_LANG="SIMPLIFIED CHINESE_CHINA".AL32UTF8
+
 # 数据库文件路径
 export ORACLE_DATA_HOME=/data2/u01/app/oracle/oradata
 export ORACLE_RECOVERY_HOME=/data2/u01/app/oracle/fast_recovery_area
+
 ```
 
 ## 五、静默安装命令路径
@@ -117,25 +123,27 @@ export ORACLE_RECOVERY_HOME=/data2/u01/app/oracle/fast_recovery_area
 
 ```bash
 cd /path/to/database/response
-./runInstaller -silent -responseFile /home/oracle/response_files/db_install.rsp \
+./runInstaller -silent -responseFile /home/oracle/db_install.rsp \
   -ignorePrereq -waitforcompletion \
   2>&1 | tee /tmp/silent_install_$(date +%Y%m%d).log
+```
+
+### 5.3 监听器配置
+
+```bash
+$ORACLE_HOME/bin/netca /silent /responsefile /home/oracle/netca.rsp \
+  2>&1 | tee /tmp/netca_config_$(date +%Y%m%d).log
 ```
 
 ### 5.2 数据库创建
 
 ```bash
 $ORACLE_HOME/bin/dbca -silent -createDatabase \
-  -responseFile /home/oracle/response_files/dbca.rsp \
+  -responseFile /home/oracle/dbca.rsp \
   2>&1 | tee /tmp/dbca_create_$(date +%Y%m%d).log
 ```
 
-### 5.3 监听器配置
 
-```bash
-$ORACLE_HOME/bin/netca /silent /responsefile /home/oracle/response_files/netca.rsp \
-  2>&1 | tee /tmp/netca_config_$(date +%Y%m%d).log
-```
 
 ## 六、目录权限要求
 
