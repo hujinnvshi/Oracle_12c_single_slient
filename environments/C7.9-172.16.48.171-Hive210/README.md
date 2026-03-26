@@ -87,16 +87,16 @@ passwd oracle
 ### 2. 创建目录
 
 ```bash
-mkdir -p /data2/u01/app/oracle
-mkdir -p /data2/u01/app/oraInventory
-mkdir -p /data2/u01/app/oracle/oradata
-mkdir -p /data2/u01/app/oracle/fast_recovery_area
+mkdir -p /data/u01/app/oracle
+mkdir -p /data/u01/app/oraInventory
+mkdir -p /data/u01/app/oracle/oradata
+mkdir -p /data/u01/app/oracle/fast_recovery_area
 mkdir -p /home/oracle/response_files
 
-chown -R oracle:oinstall /data2/u01/app/oracle
-chown -R oracle:oinstall /data2/u01/app/oraInventory
-chmod -R 775 /data2/u01/app/oracle
-chmod -R 775 /data2/u01/app/oraInventory
+chown -R oracle:oinstall /data/u01/app/oracle
+chown -R oracle:oinstall /data/u01/app/oraInventory
+chmod -R 775 /data/u01/app/oracle
+chmod -R 775 /data/u01/app/oraInventory
 ```
 
 ### 3. 配置内核参数
@@ -166,7 +166,7 @@ firewall-cmd --reload
 
 ```bash
 # Oracle Environment
-export ORACLE_BASE=/data2/u01/app/oracle
+export ORACLE_BASE=/data/u01/app/oracle
 export ORACLE_HOME=$ORACLE_BASE/product/12.2.0.1/dbhome_1
 export ORACLE_SID=hive210
 export ORACLE_UNQNAME=hive210
@@ -177,8 +177,8 @@ export LANG=zh_CN.UTF-8
 export NLS_LANG="SIMPLIFIED CHINESE_CHINA".AL32UTF8
 
 # 数据库文件路径
-export ORACLE_DATA_HOME=/data2/u01/app/oracle/oradata
-export ORACLE_RECOVERY_HOME=/data2/u01/app/oracle/fast_recovery_area
+export ORACLE_DATA_HOME=/data/u01/app/oracle/oradata
+export ORACLE_RECOVERY_HOME=/data/u01/app/oracle/fast_recovery_area
 
 # Path
 export PATH=$ORACLE_HOME/bin:$PATH
@@ -211,7 +211,7 @@ groups oracle
 ### 验证目录权限
 
 ```bash
-ls -la /data2/u01/app/
+ls -la /data/u01/app/
 ```
 
 ### 验证内核参数
@@ -274,7 +274,7 @@ yum install -y <缺失的包名>
 # 使用 oracle 用户执行
 su - oracle
 # 或使用 root 用户并设置正确的权限
-chown -R oracle:oinstall /data2/u01/app/oracle
+chown -R oracle:oinstall /data/u01/app/oracle
 ```
 
 ---

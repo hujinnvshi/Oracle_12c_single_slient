@@ -28,7 +28,7 @@
 | **可用内存** | ≥ 1GB | ___ MB | ⬜ ⬜ |
 | **交换空间** | ≥ 2GB | ___ MB | ⬜ ⬜ |
 | **磁盘空间(/)** | ≥ 8GB | ___ GB | ⬜ ⬜ |
-| **磁盘空间(/data2)** | ≥ 50GB | ___ GB | ⬜ ⬜ |
+| **磁盘空间(/data)** | ≥ 50GB | ___ GB | ⬜ ⬜ |
 
 **备注**: _______________________________________________
 
@@ -55,15 +55,15 @@
 
 | 目录路径 | 状态 | 权限 | 所有者 |
 |----------|------|------|--------|
-| `/data2/u01/app/oracle` | ⬜ 已创建 | | |
-| `/data2/u01/app/oraInventory` | ⬜ 已创建 | | |
-| `/data2/u01/app/oracle/oradata` | ⬜ 已创建 | | |
-| `/data2/u01/app/oracle/fast_recovery_area` | ⬜ 已创建 | | |
+| `/data/u01/app/oracle` | ⬜ 已创建 | | |
+| `/data/u01/app/oraInventory` | ⬜ 已创建 | | |
+| `/data/u01/app/oracle/oradata` | ⬜ 已创建 | | |
+| `/data/u01/app/oracle/fast_recovery_area` | ⬜ 已创建 | | |
 | `/home/oracle/response_files` | ⬜ 已创建 | | |
 
 **验证命令**:
 ```bash
-ls -la /data2/u01/app/
+ls -la /data/u01/app/
 ```
 
 ---
@@ -188,8 +188,8 @@ firewall-cmd --reload
 
 | 变量 | 值 | 状态 |
 |------|-----|------|
-| **ORACLE_BASE** | /data2/u01/app/oracle | ⬜ 已配置 |
-| **ORACLE_HOME** | /data2/u01/app/oracle/product/12.2.0.1/dbhome_1 | ⬜ 已配置 |
+| **ORACLE_BASE** | /data/u01/app/oracle | ⬜ 已配置 |
+| **ORACLE_HOME** | /data/u01/app/oracle/product/12.2.0.1/dbhome_1 | ⬜ 已配置 |
 | **ORACLE_SID** | hive210 | ⬜ 已配置 |
 | **ORACLE_UNQNAME** | hive210 | ⬜ 已配置 |
 | **NLS_LANG** | SIMPLIFIED CHINESE_CHINA.AL32UTF8 | ⬜ 已配置 |

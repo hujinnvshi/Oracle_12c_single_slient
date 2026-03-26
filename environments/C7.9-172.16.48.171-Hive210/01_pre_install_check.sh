@@ -87,13 +87,13 @@ check_disk_space() {
         log_info "根分区空间充足: ${root_space}G"
     fi
 
-    # 检查 /data2 分区（如果存在）
-    if [ -d /data2 ]; then
-        data2_space=$(df -BG /data2 | tail -1 | awk '{print $4}' | sed 's/G//')
+    # 检查 /data 分区（如果存在）
+    if [ -d /data ]; then
+        data2_space=$(df -BG /data | tail -1 | awk '{print $4}' | sed 's/G//')
         if [ "$data2_space" -lt 50 ]; then
-            log_warn "/data2 分区空间不足 50GB，当前: ${data2_space}G"
+            log_warn "/data 分区空间不足 50GB，当前: ${data2_space}G"
         else
-            log_info "/data2 分区空间充足: ${data2_space}G"
+            log_info "/data 分区空间充足: ${data2_space}G"
         fi
     fi
     echo ""
@@ -195,8 +195,8 @@ check_create_directories() {
     echo ""
 
     # 基础目录
-    ORACLE_BASE="/data2/u01/app/oracle"
-    ORACLE_INVENTORY="/data2/u01/app/oraInventory"
+    ORACLE_BASE="/data/u01/app/oracle"
+    ORACLE_INVENTORY="/data/u01/app/oraInventory"
 
     # 创建目录
     mkdir -p $ORACLE_BASE
@@ -217,12 +217,12 @@ check_create_directories() {
 
     # 设置权限
     log_step "设置目录权限..."
-    chown -R oracle:oinstall /data2/u01/app/oracle
-    chown -R oracle:oinstall /data2/u01/app/oraInventory
+    chown -R oracle:oinstall /data/u01/app/oracle
+    chown -R oracle:oinstall /data/u01/app/oraInventory
     chown -R oracle:oinstall /home/oracle/response_files
 
-    chmod -R 775 /data2/u01/app/oracle
-    chmod -R 775 /data2/u01/app/oraInventory
+    chmod -R 775 /data/u01/app/oracle
+    chmod -R 775 /data/u01/app/oraInventory
     chmod -R 755 /home/oracle/response_files
 
     log_info "权限设置完成"
@@ -466,7 +466,7 @@ create_env_file() {
     cat > $ENV_FILE << 'EOF'
 
 # Oracle Environment
-export ORACLE_BASE=/data2/u01/app/oracle
+export ORACLE_BASE=/data/u01/app/oracle
 export ORACLE_HOME=$ORACLE_BASE/product/12.2.0.1/dbhome_1
 export ORACLE_SID=hive210
 export ORACLE_UNQNAME=hive210
@@ -477,8 +477,8 @@ export LANG=zh_CN.UTF-8
 export NLS_LANG="SIMPLIFIED CHINESE_CHINA".AL32UTF8
 
 # 数据库文件路径
-export ORACLE_DATA_HOME=/data2/u01/app/oracle/oradata
-export ORACLE_RECOVERY_HOME=/data2/u01/app/oracle/fast_recovery_area
+export ORACLE_DATA_HOME=/data/u01/app/oracle/oradata
+export ORACLE_RECOVERY_HOME=/data/u01/app/oracle/fast_recovery_area
 
 # Path
 export PATH=$ORACLE_HOME/bin:$PATH
