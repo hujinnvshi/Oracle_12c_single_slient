@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(mkdir -p rsp_templates/12.1.0.2)",
+      "Bash(mkdir -p environments/dev environments/test environments/prod)",
+      "Bash(cd:*)"
+    ]
+  }
+}

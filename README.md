@@ -30,6 +30,28 @@ Oracle 12c 单实例静默安装项目
   - **用途**: 用于 Oracle RAC 和集群安装
   - **大小**: 约 2.8 GB
 
+## 项目结构
+
+```
+.
+├── rsp_templates/          # RSP 模板文件
+│   └── 12.1.0.2/          # Oracle 12.1.0.2 版本模板
+│       ├── db_install.rsp # 数据库安装响应文件模板
+│       ├── dbca.rsp       # 数据库配置助手响应文件模板
+│       └── netca.rsp      # 网络配置助手响应文件模板
+├── environments/          # 环境配置文件
+│   ├── dev/              # 开发环境
+│   ├── test/             # 测试环境
+│   └── prod/             # 生产环境
+└── README.md             # 项目说明文档
+```
+
+### 目录说明
+
+- **rsp_templates/**: 存放各版本的 RSP 响应文件模板
+- **environments/**: 存放各个环境的实际配置文件
+- **README.md**: 项目文档
+
 ## 使用方法
 
 待补充...
